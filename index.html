@@ -28,8 +28,22 @@
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
 	    <div class="container">
 	      <a class="navbar-brand" href="index.html">Suraj Murtadak</a>
-	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <!-- <span class="oi oi-menu"></span> -->
+					 <div class="New-Nav">
+						<input type="checkbox" />
+						<svg>
+							<use xlink:href="#menu" />
+							<use xlink:href="#menu" />
+						</svg>
+					</div>
+
+					<!-- SVG -->
+					<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+						<symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 56" id="menu">
+							<path d="M48.33,45.6H18a14.17,14.17,0,0,1,0-28.34H78.86a17.37,17.37,0,0,1,0,34.74H42.33l-21-21.26L47.75,4"/>
+						</symbol>
+					</svg>
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
@@ -47,7 +61,7 @@
 	    </div>
 	  </nav>
 	  <section id="home-section" class="hero">
-		  <div class="home-slider  owl-carousel">
+		  <div class="home-slider  owl-carousel v-slider">
 	      <div class="slider-item ">
 	      	<div class="overlay"></div>
 	        <div class="container">
