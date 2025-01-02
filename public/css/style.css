@@ -57,7 +57,9 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff; }
+  background-color: #fff;
+  overflow-y: auto;
+ }
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -3498,12 +3500,13 @@ input[type="button"].btn-block {
   align-items: center; }
 
 .navbar-toggler {
-  padding: 0.25rem 0.75rem;
+  /* padding: 0.25rem 0.75rem;
   font-size: 1.25rem;
-  line-height: 1;
+  line-height: 1; */
   background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 0.25rem; }
+  /* border: 1px solid transparent; */
+  /* border-radius: 0.25rem;  */
+}
   .navbar-toggler:hover, .navbar-toggler:focus {
     text-decoration: none; }
 
@@ -8338,7 +8341,7 @@ h1, h2, h3, h4, h5,
         margin-left: 0 !important; } }
     .ftco-navbar-light.scrolled .navbar-toggler {
       border: none;
-      color: rgba(0, 0, 0, 0.5) !important;
+      /* color: rgba(0, 0, 0, 0.5) !important; */
       border-color: rgba(0, 0, 0, 0.5) !important;
       cursor: pointer;
       text-transform: uppercase;
@@ -9714,3 +9717,98 @@ textarea.form-control {
       }
     }
     
+    .New-Nav {
+      --color: #ffffff; 
+      background: black;
+      width: fit-content;
+      height: fit-content;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg {
+        fill: none;
+        stroke: var(--color);
+        stroke-width: 7px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        height: 2.5em;
+        width: 2.5em;
+        use {
+          &:nth-of-type(1) {
+            opacity: 1;
+            stroke-dashoffset: 221;
+            stroke-dasharray: 46 249;
+            transition: stroke-dashoffset .12s linear .2s, stroke-dasharray .12s linear .2s, opacity 0s linear .2s;  
+          }
+          &:nth-of-type(2) {
+            animation: stroke-animation-reverse 1.2s ease-out forwards;
+          } 
+        }
+      }
+      input {
+        position: absolute;
+        z-index: 2;
+        cursor: pointer;
+        opacity: 0;
+        &:checked {
+          + svg {
+            use {
+              &:nth-of-type(1) {
+                stroke-dashoffset: 175;
+                stroke-dasharray: 0 295;
+                opacity: 0;
+                transition: stroke-dashoffset .07s linear .07s, stroke-dasharray .07s linear .07s, opacity 0s linear .14s;  
+              }
+              &:nth-of-type(2) {
+                animation: stroke-animation 1.2s ease-out forwards;
+              } 
+            }
+          }
+        }
+      }
+    }
+    
+    @keyframes stroke-animation {
+      0% {
+        stroke-dashoffset: 295;
+        stroke-dasharray: 25 270;
+      }
+      50% {
+        stroke-dashoffset: 68;
+        stroke-dasharray: 59 236;
+      }
+      65% {
+        stroke-dashoffset: 59;
+        stroke-dasharray: 59 236;
+      }
+      100% {
+        stroke-dashoffset: 68;
+        stroke-dasharray: 59 236;
+      }
+    }
+    
+    @keyframes stroke-animation-reverse {
+      0% {
+        stroke-dashoffset: 68;
+        stroke-dasharray: 59 236;
+      }
+      50% {
+        stroke-dashoffset: 290;
+        stroke-dasharray: 25 270;
+      }
+      65% {
+        stroke-dashoffset: 295;
+        stroke-dasharray: 25 270;
+      }
+      100% {
+        stroke-dashoffset: 290;
+        stroke-dasharray: 25 270;
+      }
+    }
+
+    .slider-item {
+      overflow-y: auto; /* Enable vertical scrolling */
+      /* height: 100vh; Or adjust the height as needed */
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
