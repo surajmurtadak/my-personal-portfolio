@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-padding-top: 80px;
+  }
+
+  /* Lenis smooth scroll requires html & body to be full height */
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  body {
+    background-color: #080808;
+    color: #e0e0e0;
+    overflow-x: hidden;
+  }
+
+  /* Hide default cursor on non-touch devices */
+  @media (pointer: fine) {
+    *, *::before, *::after {
+      cursor: none !important;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #080808;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #F96D00;
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  .section-heading {
+    @apply text-center mb-16 relative z-10;
+  }
+
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 inline-flex items-center gap-2 cursor-pointer;
+  }
+
+  .btn-outline {
+    @apply border border-white/20 hover:border-primary text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 inline-flex items-center gap-2 cursor-pointer;
+  }
+
+  .btn-ghost {
+    @apply border border-primary/40 text-primary font-semibold py-3 px-8 rounded-full transition-all duration-300 hover:bg-primary hover:text-white hover:-translate-y-0.5 inline-flex items-center gap-2 cursor-pointer;
+  }
+
+  .section {
+    @apply py-24 px-4 relative overflow-hidden;
+  }
+
+  /* 21st.dev Premium Glassmorphism Card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.025);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.045);
+    border-color: rgba(249, 109, 0, 0.4);
+    box-shadow: 0 10px 30px -10px rgba(249, 109, 0, 0.15);
+  }
+
+  /* Skill bubble 21st.dev style */
+  .skill-bubble {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #F96D00 0%, #ff9e53 50%, #7C3AED 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-orange {
+  background: linear-gradient(135deg, #F96D00, #ff8c33);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Navbar blur effect */
+.navbar-blur {
+  background: rgba(8, 8, 8, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Form input */
+.form-input {
+  @apply w-full bg-[#141414]/80 border border-white/10 text-white placeholder-gray-500 rounded-xl px-4 py-3 outline-none transition-all duration-300 focus:border-primary focus:shadow-lg focus:shadow-primary/10 font-inter;
+}
+
+/* Footer divider */
+.footer-divider {
+  background: linear-gradient(90deg, transparent, rgba(249, 109, 0, 0.5), transparent);
+  height: 1px;
+}
+
+/* Glow effects */
+.glow-orange {
+  box-shadow: 0 0 35px rgba(249, 109, 0, 0.25);
+}
+
+.glow-violet {
+  box-shadow: 0 0 35px rgba(124, 58, 237, 0.25);
+}
+
+/* Background grain texture overlay */
+.section-grain {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(1deg); }
+}
+
+.float-anim {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Marquee continuous scroll */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
