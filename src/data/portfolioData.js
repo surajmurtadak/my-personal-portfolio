@@ -10,7 +10,7 @@ export const personalInfo = {
   zipCode: '122001',
   dateOfBirth: 'October 30, 1998',
   website: 'surajmurtadak.com',
-  cvLink: 'https://drive.google.com/file/d/1N7btsIU3sqILrPhYxpQ86aGviRoEWMBC/view',
+  cvLink: 'https://drive.google.com/file/d/1HfPWxCB_yZM6YE0xGeFY7VLMZdp_4P0u/view?usp=sharing',
   buyMeCoffeeLink: 'https://buymeacoffee.com/surajmurtadak',
   hireFullTimeEmail: 'mailto:surajmurtadak@gmail.com?subject=We Want Hire You&body=Hi Suraj, We want to Hire You As A Full-Time Senior Full Stack Developer.',
   hireFreelancerEmail: 'mailto:surajmurtadak@gmail.com?subject=We Want Hire You&body=Hi Suraj, We want to Hire You As A Freelance Developer.',

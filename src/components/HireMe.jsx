@@ -51,7 +51,7 @@ export default function HireMe() {
               whileTap={{ scale: 0.97 }}
               className="btn-primary text-lg py-4 px-10 glow-orange"
             >
-              🏢 Full-Time
+              Full-Time
             </motion.a>
             <motion.a
               href={personalInfo.hireFreelancerEmail}
@@ -59,7 +59,7 @@ export default function HireMe() {
               whileTap={{ scale: 0.97 }}
               className="btn-ghost text-lg py-4 px-10"
             >
-              💼 Freelancer
+              Freelancer
             </motion.a>
           </div>
         </motion.div>

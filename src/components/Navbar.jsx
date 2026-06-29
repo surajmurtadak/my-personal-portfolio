@@ -30,9 +30,11 @@ export default function Navbar() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary to-violet flex items-center justify-center text-white font-black text-lg shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform">
-            S
-          </div>
+          <img
+            src="/images/favicon.png"
+            alt="Suraj Murtadak"
+            className="w-10 h-10 rounded-xl object-contain shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform"
+          />
           <div className="flex flex-col">
             <span className="text-lg font-bold text-white tracking-tight leading-none group-hover:text-primary transition-colors">
               Suraj Murtadak

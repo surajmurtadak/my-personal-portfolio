@@ -34,23 +34,22 @@ export default function CustomCursor() {
     document.addEventListener('mouseenter', handleMouseEnter);
     document.addEventListener('mouseleave', handleMouseLeave);
 
-    // Detect hoverable elements
-    const addHoverListeners = () => {
-      const hoverTargets = document.querySelectorAll(
-        'a, button, [role="button"], input, textarea, select, .cursor-pointer, .btn-primary, .btn-outline, .btn-ghost, .glass-card, .skill-bubble'
-      );
-      hoverTargets.forEach((el) => {
-        el.addEventListener('mouseenter', () => setIsHovering(true));
-        el.addEventListener('mouseleave', () => setIsHovering(false));
-      });
+    // Use event delegation for high performance hover detection without DOM query lagging
+    const handleMouseOver = (e) => {
+      if (
+        e.target &&
+        e.target.closest &&
+        e.target.closest(
+          'a, button, [role="button"], input, textarea, select, .cursor-pointer, .btn-primary, .btn-outline, .btn-ghost, .glass-card, .skill-bubble'
+        )
+      ) {
+        setIsHovering(true);
+      } else {
+        setIsHovering(false);
+      }
     };
 
-    // Run once immediately and then observe for DOM changes
-    addHoverListeners();
-    const observer = new MutationObserver(() => {
-      addHoverListeners();
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
+    document.addEventListener('mouseover', handleMouseOver, { passive: true });
 
     return () => {
       window.removeEventListener('mousemove', moveCursor);
@@ -58,7 +57,7 @@ export default function CustomCursor() {
       window.removeEventListener('mouseup', handleMouseUp);
       document.removeEventListener('mouseenter', handleMouseEnter);
       document.removeEventListener('mouseleave', handleMouseLeave);
-      observer.disconnect();
+      document.removeEventListener('mouseover', handleMouseOver);
     };
   }, [cursorX, cursorY]);
 

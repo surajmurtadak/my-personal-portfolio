@@ -32,35 +32,7 @@ export default function SmoothScroll({ children }) {
 
     // --- GSAP ScrollTrigger Animations ---
 
-    // Animate all sections on scroll
-    const sections = document.querySelectorAll('.section, section');
-    sections.forEach((section) => {
-      // Fade-in children elements
-      const animatable = section.querySelectorAll(
-        'h2, h3, p, .glass-card, .glass-card > *, .btn-primary, .btn-outline, .grid > div'
-      );
-
-      gsap.fromTo(
-        animatable,
-        {
-          y: 40,
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: 'power3.out',
-          stagger: 0.08,
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 85%',
-            end: 'top 20%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-    });
+    // Note: Individual sections and components use Framer Motion for scroll-triggered animations.
 
     // Parallax effect for ambient glow blobs
     const glowBlobs = document.querySelectorAll('[class*="blur-[1"]');

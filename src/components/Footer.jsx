@@ -23,9 +23,11 @@ export default function Footer() {
           {/* Brand Column (4 cols) */}
           <div className="lg:col-span-4">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary to-violet flex items-center justify-center text-white font-black text-lg">
-                S
-              </div>
+              <img
+                src="/images/favicon.png"
+                alt="Suraj Murtadak"
+                className="w-10 h-10 rounded-xl object-contain"
+              />
               <h3 className="text-xl font-bold text-white">Suraj Murtadak</h3>
             </div>
 
